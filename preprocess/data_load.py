@@ -15,6 +15,7 @@ def convert_to_categories(df, col):
     df[col] = df[col]
     try:
         df[col] = pd.Categorical(df[col])
+        print(df[col].cat.categories)
         df[col] = df[col].cat.codes
     except Exception as e:
         print(f"Unable to convert column {col} to cat codes...:{e}")
